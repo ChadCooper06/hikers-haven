@@ -18,10 +18,10 @@ function App() {
     <div className="App">
       <Navbar className="nav" expand={false}>
         <div>
+          <div>Logo</div>
           <Link to="/">
             <h1>HIKER'S HAVEN FORUM</h1>
           </Link>
-          <div>Logo</div>
           <div className="action-buttons">
             <Button
               className="custom-buttons"

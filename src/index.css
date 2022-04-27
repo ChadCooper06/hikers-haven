@@ -1,3 +1,6 @@
+html {
+  background-color: burlywood;
+}
 .App {
   background-color: aquamarine;
 }
@@ -6,7 +9,7 @@ h1 {
   color: rgba(12, 85, 13, 0.5); 
 }
 .nav {
-    display: 'flex';
+    display: 'flex-box';
     flex-direction: 'row';
     flex-wrap: 'nowrap';
     justify-content: 'space-between';
