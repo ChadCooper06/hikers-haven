@@ -9,6 +9,11 @@ function createWrapperAndAppendToBody(wrapperId) {
     return wrapperElement;
   }
   
+// The portal creates a separate DOM node that exists outside the parent page heirarhcy and renders it's children 
+// on the DOM- passing up any events to the parent as though it was happening on the parent. This updates the DOM
+// even though the event occurred outside the tree
+// https://reactjs.org/docs/portals.html  
+
 // Set a default value for wrapperId prop
 function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
     const [wrapperElement, setWrapperElement] = useState(null);
