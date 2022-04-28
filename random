@@ -1,0 +1,14 @@
+
+
+const Modal = ({ Login, isOpen }) => {
+    if (!isOpen) return null;
+    return (
+        <ReactPortal wrapperId="react-portal-modal-container">
+            <div className='modal'>
+                { Login }
+            </div>
+        </ReactPortal>
+    );
+};
+
+export default Modal;

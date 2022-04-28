@@ -1,14 +1,12 @@
 import React, { useState } from "react";
+import "./index.css";
 import { Link, Outlet } from "react-router-dom";
 import { Button, Navbar } from "react-bootstrap";
-import "./index.css";
 import Modal from "./Components/Modal";
+//import Modal2 from "./Components/Modal2";
+//import { GlobalProvider } from './context/GlobalState';
+//import NavBar from './components/NavBar';
 
-
-// import './App.css';
-// import { Outlet } from "react-router-dom";
-// import { GlobalProvider } from './context/GlobalState';
-// import NavBar from './components/NavBar';
 
 
 // function App() {
@@ -65,7 +63,6 @@ function App() {
                   </Button>
               </div>
               <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-                This is Modal Content!
               </Modal>
             </div>
           </div>
@@ -74,7 +71,7 @@ function App() {
             <Link to='/forums' >Forums</Link>
             <Link to='/posts'>Posts</Link>
             <Link to='/Resources'>Links</Link>
-          </div>
+          </div> MAKE SURE TO ADD LINKS TO THE MODAL POINTS SOMEWHERE!!!!!!!!!
         </Navbar>
       </header> 
       <div className="main-page">

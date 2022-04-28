@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
-import jwtDecode from "jwt-decode";
 
-const Login = () => {
-  let navigate = useNavigate();
+import jwtDecode from "jwt-decode";
+//import Modal from './Modal';
+
+const Login = ({ isOpen, setIsOpen, closeModal }) => {
+  //let navigate = useNavigate();
 
   const [ state, dispatch ] = useGlobalState();
 
@@ -23,42 +25,43 @@ const Login = () => {
           currentUserToken: resp.access,
           currentUser: data
         })
-        navigate('/profile')
+        //navigate('/profile')// CHANGE THIS TO THE CURRENT PAGE?
       });
   }
 
   return (
-    <div className="c-form">
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="username">Username:</label>
+    
+      <div className="c-form">
+        <form onSubmit={handleLogin}>
+          <div>
+            <label htmlFor="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="pass">Password</label>
+            <input
+              type="password"
+              id="pass"
+              name="password"
+              minLength="8"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
           <input
-            type="text"
-            id="username"
-            name="username"
-            onChange={(e) => setUsername(e.target.value)}
-            required
+            type="submit"
+            value="Sign in"
           />
-        </div>
-        <div>
-          <label htmlFor="pass">Password</label>
-          <input
-            type="password"
-            id="pass"
-            name="password"
-            minLength="8"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <input
-          type="submit"
-          value="Sign in"
-        />
-      </form>
-    </div>
-  )
-
-}
+        </form>
+      </div>
+    
+  );
+};
 
 export default Login

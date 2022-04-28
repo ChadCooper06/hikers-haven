@@ -12,7 +12,7 @@ const client = axios.create({
 
 client.interceptors.response.use(
   response => response,
-  error => {
+  async error => {
     const originalRequest = error.config;
 
     // Prevent infinite loops
@@ -34,20 +34,17 @@ client.interceptors.response.use(
         console.log(tokenParts.exp);
 
         if (tokenParts.exp > now) {
-          return client
-            .post(REFRESH_ENDPOINT, { refresh: user.refresh })
-            .then((response) => {
+          try {
+                const response = await client
+                    .post(REFRESH_ENDPOINT, { refresh: user.refresh });
+                localStorage.setItem('user', response.data);
 
-              localStorage.setItem('user', response.data);
-
-              client.defaults.headers['Authorization'] = "Bearer " + response.data.access;
-              originalRequest.headers['Authorization'] = "Bearer " + response.data.access;
-
-              return client(originalRequest);
-            })
-            .catch(err => {
-              console.log(err)
-            });
+                client.defaults.headers['Authorization'] = "Bearer " + response.data.access;
+                originalRequest.headers['Authorization'] = "Bearer " + response.data.access;
+                return await client(originalRequest);
+            } catch (err) {
+                console.log(err);
+            }
         } else {
           console.log("Refresh token is expired", tokenParts.exp, now);
           window.location.href = '/login/';

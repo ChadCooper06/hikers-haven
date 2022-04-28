@@ -1,7 +1,11 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
+//import Modal2 from "../Modal2";
 
-const Register = () => {
+//import { useNavigate } from "react-router-dom";
+
+function Register() {
+  //let navigate = useNavigate();
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -21,12 +25,13 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(user)
+    //navigate('/profile')
   }
 
   return (
     <div className="c-form">
       <form onSubmit={handleRegister}>
-        <div>
+        <div>Throw on your boots and join us!
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -101,7 +106,6 @@ const Register = () => {
       </form>
     </div>
   )
-
 }
 
 export default Register
