@@ -4,6 +4,25 @@ import { Button, Navbar } from "react-bootstrap";
 import "./index.css";
 import Modal from "./Components/Modal";
 
+
+// import './App.css';
+// import { Outlet } from "react-router-dom";
+// import { GlobalProvider } from './context/GlobalState';
+// import NavBar from './components/NavBar';
+
+
+// function App() {
+//   return (
+//     <GlobalProvider>
+//       <NavBar />
+//       <Outlet />
+//     </GlobalProvider>
+//   );
+// }
+
+// export default App;
+
+
 function App() {
 
   const [isOpen, setIsOpen] = useState(false);
