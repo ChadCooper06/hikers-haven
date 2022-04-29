@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import "./index.css";
-import { Link, Outlet } from "react-router-dom";
 import { Button, Navbar } from "react-bootstrap";
-import Modal from "./Components/Modal";
-//import Modal2 from "./Components/Modal2";
 //import { GlobalProvider } from './context/GlobalState';
-//import NavBar from './components/NavBar';
-
-
+//import Navbar from "./components/Navbar";
+import Modal from "./components/Modal";
+//import Modal2 from "./components/Modal2";
+import { Outlet, Link } from "react-router-dom";
 
 // function App() {
 //   return (
 //     <GlobalProvider>
-//       <NavBar />
-//       <Outlet />
+//     <Navbar />
+//       <Modal />
+//     <Outlet />
+//     <footer>
+//       <p>Copyright 2022. This site made with React front end and Django back end by Awesome Inc. student.</p>
+//     </footer>
 //     </GlobalProvider>
 //   );
 // }
@@ -71,7 +73,7 @@ function App() {
             <Link to='/forums' >Forums</Link>
             <Link to='/posts'>Posts</Link>
             <Link to='/Resources'>Links</Link>
-          </div> MAKE SURE TO ADD LINKS TO THE MODAL POINTS SOMEWHERE!!!!!!!!!
+          </div>
         </Navbar>
       </header> 
       <div className="main-page">

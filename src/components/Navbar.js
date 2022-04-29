@@ -1,3 +1,31 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
+//import { useGlobalState } from "../context/GlobalState";
+
+const Navbar = () => {
+
+  //const [ state, dispatch ] = useGlobalState();
+
+  return (
+    <>
+    <div className='header-wrapper'></div>      
+        <Link to="/">
+            <h1>HIKER'S HAVEN FORUM</h1>
+        </Link>
+    <div className='header-menu'>
+        <Link to='/*'>Home</Link>
+        <Link to='/forums/*' >Forums</Link>
+        <Link to='/posts/*'>Posts</Link>
+        <Link to='/Resources/*'>Links</Link>
+    </div>
+    </>
+  )
+}
+
+export default Navbar;
+
+
 // import { Link } from "react-router-dom";
 // import { useGlobalState } from "../context/GlobalState";
 

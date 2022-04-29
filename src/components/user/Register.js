@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
 //import Modal2 from "../Modal2";
-
+//import { useGlobalState } from "../../context/GlobalState";
 //import { useNavigate } from "react-router-dom";
 
 function Register() {
+  //const [ state, dispatch ] = useGlobalState();
   //let navigate = useNavigate();
   const [user, setUser] = useState({
     username: "",
@@ -108,4 +109,4 @@ function Register() {
   )
 }
 
-export default Register
+export default Register;

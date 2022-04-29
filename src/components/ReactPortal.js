@@ -9,19 +9,23 @@ function createWrapperAndAppendToBody(wrapperId) {
     return wrapperElement;
   }
   
-// The portal creates a separate DOM node that exists outside the parent page heirarhcy and renders it's children 
-// on the DOM- passing up any events to the parent as though it was happening on the parent. This updates the DOM
-// even though the event occurred outside the tree
+// The portal creates a separate DOM node that exists outside the parent page 
+// hierarchy and renders it's children on the DOM
+// It passes up any events to the parent as though it was happening on the parent. 
+// This updates the DOM even though the event occurred outside the tree
+// Ensures you don't have to redirect to another page
 // https://reactjs.org/docs/portals.html  
 
 // Set a default value for wrapperId prop
 function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
     const [wrapperElement, setWrapperElement] = useState(null);
 
-    // Use useLayoutEffect instead of useEffect since dealing with something that is rendered on other routes
+    // Use useLayoutEffect instead of useEffect since dealing with something
+    // that is rendered on other routes
     useLayoutEffect(() => {
         let element = document.getElementById(wrapperId);
         let systemCreated = false;
+
         // if element is not found with wrapperId or wrapperId is not provided,
         // create and append to body
         if (!element) {
@@ -31,7 +35,8 @@ function ReactPortal({ children, wrapperId = "react-portal-wrapper" }) {
         setWrapperElement(element);
     
         return () => {
-          // delete the programatically created element
+
+          // delete the programatically created element 
           if (systemCreated && element.parentNode) {
             element.parentNode.removeChild(element);
           }

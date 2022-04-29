@@ -6,10 +6,10 @@ import { useGlobalState } from "../../context/GlobalState";
 import jwtDecode from "jwt-decode";
 //import Modal from './Modal';
 
-const Login = ({ isOpen, setIsOpen, closeModal }) => {
+function Login() {
   //let navigate = useNavigate();
 
-  const [ state, dispatch ] = useGlobalState();
+  const [ /*state, */dispatch ] = useGlobalState();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -64,4 +64,4 @@ const Login = ({ isOpen, setIsOpen, closeModal }) => {
   );
 };
 
-export default Login
+export default Login;
