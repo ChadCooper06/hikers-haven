@@ -1,22 +1,46 @@
 html {
   background-color: burlywood;
 }
-.App {
+.header-wrapper {
+  display: 'flexbox';
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  position: relative;
+  width: 100%;
   background-color: aquamarine;
 }
-h1 {
-  font-size: 4rem;
-  color: rgba(12, 85, 13, 0.5); 
+.header-menu {
+  display: flex;
+  padding-right: 1.2rem;
+  font-size: 1.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  grid-gap: .5rem;
 }
-.nav {
-    display: 'flex-box';
-    flex-direction: 'row';
-    flex-wrap: 'nowrap';
-    justify-content: 'space-between';
-    position: 'relative';
-    width: '100%';
-    background-color:#E5A561;
-    margin: '0';
+h1 {
+  margin-bottom: 0rem;
+  padding-left: 1.4rem;
+  padding-top: .5rem;
+  padding-bottom: 0rem;
+  font-size: 2.5rem;
+  color: rgba(12, 85, 13, 0.5);
+}
+.h-menu {
+  display: flex;
+  grid-gap: .5rem;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding-right: 1.2rem;
+  padding-bottom: .5rem;
+}
+button {
+  border-radius: 15%;
+  border: solid black 1px;
+  background-color: lightblue;
+}
+.main-page {
+  padding-bottom: 60px;
 }
 .react-portal-wrapper {
   width: 106%;
@@ -30,9 +54,9 @@ h1 {
   height: 100%;
   position: fixed;
   inset: 0; /* inset sets all 4 values (top right bottom left) same as padding, margin etc., */
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(83, 77, 77, 0.6);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
@@ -50,6 +74,28 @@ h1 {
   align-items: center;
   justify-content: center;
 } 
+.footer-wrapper {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+}
+.user {
+  color:rgb(255, 255, 255)
+}
+.pass {
+  color: white;
+}
+
+.login, .register {
+  justify-content: right;
+}
+.m-contents {
+  display: flex;
+  justify-content: flex-end;
+}
 /*
 .darkBG {
   background-color: rgba(0, 0, 0, 0.2);

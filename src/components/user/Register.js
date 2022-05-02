@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-//import Modal2 from "../Modal2";
+import Modal from "../Modal";
 //import { useGlobalState } from "../../context/GlobalState";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   //const [ state, dispatch ] = useGlobalState();
-  //let navigate = useNavigate();
+  let navigate = useNavigate();
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -26,13 +26,14 @@ function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(user)
-    //navigate('/profile')
+    navigate('/profile')
   }
 
   return (
+    <Modal>
     <div className="c-form">
       <form onSubmit={handleRegister}>
-        <div>Throw on your boots and join us!
+        <div>Throw on your boots and join us!<br />
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -106,6 +107,7 @@ function Register() {
         />
       </form>
     </div>
+    </Modal>
   )
 }
 

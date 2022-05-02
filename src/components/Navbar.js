@@ -1,33 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-//import { useGlobalState } from "../context/GlobalState";
+import { useGlobalState } from "../context/GlobalState";
+import Login from './user/Login';
+import Register from './user/Register';
+import Modal from './Modal';
 
-const Navbar = () => {
-
-  //const [ state, dispatch ] = useGlobalState();
-
-  return (
-    <>
-    <div className='header-wrapper'></div>      
-        <Link to="/">
-            <h1>HIKER'S HAVEN FORUM</h1>
-        </Link>
-    <div className='header-menu'>
-        <Link to='/*'>Home</Link>
-        <Link to='/forums/*' >Forums</Link>
-        <Link to='/posts/*'>Posts</Link>
-        <Link to='/Resources/*'>Links</Link>
-    </div>
-    </>
-  )
-}
-
-export default Navbar;
-
-
-// import { Link } from "react-router-dom";
-// import { useGlobalState } from "../context/GlobalState";
 
 // function NavBar() {
 //   const [ state, dispatch ] = useGlobalState();
@@ -41,21 +19,21 @@ export default Navbar;
 //         {
 //           !state.currentUser && (
 //             <li>
-//               <Link to="/login">Login</Link>
+//               <Button onClick={() => dispatch({ Login })}>Login</Button>
 //             </li>
 //           )
 //         }
 //         {
 //           !state.currentUser && (
 //             <li>
-//               <Link to="/register">Register</Link>
+//               <Button onClick={() => dispatch({ Register })}>Sign-up</Button>
 //             </li>
 //           )
 //         }
 //         {
 //           state.currentUser && (
 //             <li>
-//               <Link to="/profile">Profile</Link>
+//               <Link to="./Forum">Forums</Link>
 //             </li>
 //           )
 //         }
@@ -65,6 +43,9 @@ export default Navbar;
 // }
 
 // export default NavBar;
+
+
+
 
 // function Navbar () {
 //     const [ state, dispatch ] = useGlobalState();
@@ -107,3 +88,62 @@ export default Navbar;
 //         </div>
 //     </nav>
 // }
+
+
+
+const Navbar = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [ state, dispatch ] = useGlobalState();
+
+  return (
+    <div className='header-wrapper'>      
+      <Link to="/">
+          <h1>HIKER'S HAVEN FORUM</h1>
+      </Link>
+      {
+      state &&(
+      <div className='header-menu'>
+          <Link to='/'>Home</Link>
+          <Link to='/Forums/' >Forums</Link>
+          <Link to='/Resources/'>Links</Link>
+      </div>
+      )
+      }
+      <div className='h-menu'>
+      {
+      !state.currentUser &&(
+        <div className='login'>
+          <button
+            className="login-button"
+            onClick={() => {dispatch({ Login })
+              }
+            }>
+            Login
+          </button>
+          <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
+          </Modal>
+        </div>
+        )}
+        {
+          !state.currentUser &&(
+          <div className='register'>
+          <button
+            className="signup-button"
+            onClick={() => {dispatch({ Register })
+              }
+            }>
+            Sign-up
+          </button>
+          <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
+          </Modal>
+        </div>
+      )}
+      </div>
+      
+    </div>
+  )
+}
+
+export default Navbar;

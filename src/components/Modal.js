@@ -1,22 +1,20 @@
 import React from "react";
-import ReactPortal from "./ReactPortal";
 import { Form } from "react-bootstrap";
-//import { Route } from "react-router-dom";
-// import { useState } from "react";
-// import { render } from 'react-dom';
+import ReactPortal from "./ReactPortal";
 
-function Modal({ isOpen, handleClose }) {
+
+function Modal({ isOpen, handleClose, handleLogin }) {
     if (!isOpen) return null;
   
     return (
-      <ReactPortal wrapperId="react-portal-modal-container">
+      <ReactPortal>
         <div className="modal">
           <Form>
             <Form.Group 
               className="form1" 
               controlId="exampleForm.ControlInput1"
             >
-              <Form.Label>Username</Form.Label>
+              <Form.Label className="user">Username</Form.Label>
               <Form.Control
               type="email"
               placeholder="name@example.com"
@@ -27,10 +25,13 @@ function Modal({ isOpen, handleClose }) {
               className="form1"
               controlId="exampleForm.ControlTextarea1"
             >
-              <Form.Label>Password</Form.Label>
+              <Form.Label className="pass">Password</Form.Label>
               <Form.Control as="textarea" rows={1} />
             </Form.Group>
           </Form>
+          <button onClick={handleLogin} className='login-btn'>
+            Login
+          </button>
           <button onClick={handleClose} className="close-btn">
             Close
           </button>
@@ -41,6 +42,73 @@ function Modal({ isOpen, handleClose }) {
   }
   
 export default Modal;
+
+// import React, {
+//   createContext, 
+//   useContext, 
+//   useState, 
+//   cloneElement,
+// } from "react";
+// import "../index.css";
+// import ReactPortal from "./ReactPortal";
+
+
+// const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
+
+// const ModalContext = createContext()
+
+// function Modal(props) {
+//   const [isOpen, setIsOpen] = useState(false)
+//   return (
+//     <ReactPortal>
+//     <div className="modal">
+//       <ModalContext.Provider className="modal-content" value={[isOpen, setIsOpen]} {...props} />
+//     </div>
+//     </ReactPortal>
+//   )
+// }
+
+// function ModalDismissButton ({ children: child }) {
+//   const [, setIsOpen] = useContext(ModalContext)
+//     return cloneElement(child, {
+//     onClick: callAll(() => setIsOpen(false), child.props.onClick),
+//     })
+// }
+
+// function ModalOpenButton ({ children: child }) {
+//   const [, setIsOpen] = useContext(ModalContext)
+//   return cloneElement(child, {
+//     onClick: callAll(() => setIsOpen(true), child.props.onClick),
+//   })
+// }
+
+// function ModalContentsBase (props) {
+//   const [isOpen, setIsOpen] = useContext(ModalContext)
+//   return (
+//     <div open={isOpen} onClose={() => setIsOpen(false)} {...props}>
+//       {props.children}
+//     </div>
+//   )
+// }
+
+  
+// function ModalContents ({ title, children, ...props }) {
+//   return (
+//     <ModalContentsBase {...props}>
+//       <div style={{ padding: "20px" }}>
+//         <div className="m-contents" css={{ display: "flex", justifyContent: "flex-end" }}>
+//           <ModalDismissButton>
+//             <button className="close">Close</button>
+//           </ModalDismissButton>
+//         </div>
+//         <div>{title}</div>
+//         {children}
+//       </div>
+//     </ModalContentsBase>
+//   );
+// };
+
+// export { Modal, ModalDismissButton, ModalOpenButton, ModalContents };
 
 // export const Modal = (props) => {
 //   return (

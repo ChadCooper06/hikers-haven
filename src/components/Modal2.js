@@ -1,22 +1,41 @@
+// import React from "react";
+// //import ReactPortal from "./ReactPortal";
+// import { Form } from "react-bootstrap";
+// import Register from "./user/Register"
+// //import { Route } from "react-router-dom";
+// // import AuthService from "./../services/auth.service";
 
-import React from "react";
-import ReactPortal from "./ReactPortal";
-//import { Route } from "react-router-dom";
-// import { useState } from "react";
-//import { Form } from "react-bootstrap";
-// import { render } from 'react-dom';
-import Register from "./user/Register"
+// // export const Modal2 = ({ isOpen }) => {
+// //     if (!isOpen) return null;
+// //     return (
+// //         <ReactPortal wrapperId="react-portal-modal-container">
+// //             <div className='modal'>
+// //                 { Register } 
+// //             </div>
+// //         </ReactPortal>
+// //     );
+// // };
 
-export const Modal2 = ({ isOpen }) => {
-    if (!isOpen) return null;
-    return (
-        <ReactPortal wrapperId="react-portal-modal-container">
-            <div className='modal'>
-                { Register } 
-            </div>
-        </ReactPortal>
-    );
-};
+
+// function Modal2({ isOpen, handleClose, handleRegister }) {
+//     if (!isOpen) return null;
+
+//   return (
+//         <div className="modal2">
+//         <Form>
+//             { Register }
+//         </Form>
+//           <button variant="" onClick={handleClose}>
+//             Cancel
+//           </button>
+//           <button type="submit" variant="primary" onClick={handleRegister}>
+//             Sign Up
+//           </button>
+//         </div>  
+//   );
+// }
+
+// export default Modal2;
 
 
         // import React from "react";

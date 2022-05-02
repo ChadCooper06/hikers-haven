@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
+import Modal from "../Modal";
 
 import jwtDecode from "jwt-decode";
-//import Modal from './Modal';
 
 function Login() {
-  //let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [ /*state, */dispatch ] = useGlobalState();
 
@@ -25,16 +25,16 @@ function Login() {
           currentUserToken: resp.access,
           currentUser: data
         })
-        //navigate('/profile')// CHANGE THIS TO THE CURRENT PAGE?
+        navigate('/profile')
       });
   }
 
   return (
-    
+    <Modal>
       <div className="c-form">
         <form onSubmit={handleLogin}>
           <div>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">UserName:</label>
             <input
               type="text"
               id="username"
@@ -60,7 +60,7 @@ function Login() {
           />
         </form>
       </div>
-    
+    </Modal>
   );
 };
 
