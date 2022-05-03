@@ -7,12 +7,11 @@ import { API_URL, REFRESH_ENDPOINT } from './auth.constants';
  */
 const client = axios.create({
   baseURL: API_URL,
-  headers: authHeader(),
 });
 
 client.interceptors.response.use(
   response => response,
-  async error => {
+  error => {
     const originalRequest = error.config;
 
     // Prevent infinite loops
@@ -34,17 +33,20 @@ client.interceptors.response.use(
         console.log(tokenParts.exp);
 
         if (tokenParts.exp > now) {
-          try {
-                const response = await client
-                    .post(REFRESH_ENDPOINT, { refresh: user.refresh });
-                localStorage.setItem('user', response.data);
+          return client
+            .post(REFRESH_ENDPOINT, { refresh: user.refresh })
+            .then((response) => {
 
-                client.defaults.headers['Authorization'] = "Bearer " + response.data.access;
-                originalRequest.headers['Authorization'] = "Bearer " + response.data.access;
-                return await client(originalRequest);
-            } catch (err) {
-                console.log(err);
-            }
+              localStorage.setItem('user', response.data);
+
+              client.defaults.headers['Authorization'] = "Bearer " + response.data.access;
+              originalRequest.headers['Authorization'] = "Bearer " + response.data.access;
+
+              return client(originalRequest);
+            })
+            .catch(err => {
+              console.log(err)
+            });
         } else {
           console.log("Refresh token is expired", tokenParts.exp, now);
           window.location.href = '/login/';
@@ -65,7 +67,12 @@ client.interceptors.response.use(
 /**
  * Request Wrapper with default success/error actions
  */
-const request = async (options) => {
+const request = async (opts) => {
+  let options = {
+    ...opts,
+    headers: authHeader(),
+  }
+  
   const onSuccess = (response) => {
     console.debug('Request Successful!', response);
     return response;

@@ -1,6 +1,18 @@
-html {
-  background-color: burlywood;
+@font-face {
+  font-family: 'Cabin', 'sans-serif';  /* font I downloaded from Google */
+  src: url('./assets/Cabin-VariableFont_wdth\,wght.ttf') format('truetype');
 }
+html {
+  background-color: burlywood; /* Will replace with a photo maybe*/
+  background-image: url('./assets/pexels-brady-knoll-5187131.jpg');
+  background-size: 1200px;
+  background-repeat: no-repeat;
+}
+
+/*
+HEADER
+*/
+
 .header-wrapper {
   display: 'flexbox';
   flex-direction: row;
@@ -8,23 +20,16 @@ html {
   justify-content: space-evenly;
   position: relative;
   width: 100%;
-  background-color: rgb(115, 228, 240);
+  background-color: transparent;
 }
 .header-menu {
+  font-family: Cabin;
   display: flex;
   padding-right: 1.2rem;
   font-size: 1.5rem;
   justify-content: flex-end;
   align-items: center;
   grid-gap: .5rem;
-}
-h1 {
-  margin-bottom: 0rem;
-  padding-left: 1.4rem;
-  padding-top: .5rem;
-  padding-bottom: 0rem;
-  font-size: 2.5rem;
-  color: rgba(15, 48, 16, 0.5);
 }
 .h-menu {
   display: flex;
@@ -39,6 +44,23 @@ button {
   border: solid black 1px;
   background-color: rgb(207, 210, 211);
 }
+
+/*
+TITLE AND HOME
+*/
+h1 {
+  font-family: Cabin;
+  margin-bottom: 0rem;
+  padding-left: 1.4rem;
+  padding-top: .5rem;
+  padding-bottom: 0rem;
+  font-size: 3rem;
+  font-weight: bolder;
+  color: rgb(16, 53, 17);
+}
+.title {
+  border: whitesmoke;
+}
 .main-page {
   padding-bottom: 60px;
 }
@@ -51,6 +73,11 @@ button {
   height: 60vh;
   width: 100%;
 }
+
+/*
+LOGIN/SIGNUP MODAL
+*/
+
 .react-portal-wrapper {
   width: 106%;
   height: 106%;
@@ -83,21 +110,12 @@ button {
   align-items: center;
   justify-content: center;
 } 
-.footer-wrapper {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  align-items: center;
-  justify-content: space-around;
-  width: 100vw;
-}
 .user {
   color:rgb(255, 255, 255)
 }
 .pass {
   color: white;
 }
-
 .login, .register {
   justify-content: right;
 }
@@ -105,131 +123,58 @@ button {
   display: flex;
   justify-content: flex-end;
 }
+
 /*
-.darkBG {
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-}
-
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.modal {
-  width: 250px;
-  height: 170px;
-  background: white;
-  color: white;
-  z-index: 10;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
-}
-
-.modalHeader {
-  height: 50px;
-  background: white;
-  overflow: hidden;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-
-.heading {
-  margin: 0;
-  padding: 10px;
-  color: #2c3e50;
-  font-weight: 500;
-  font-size: 18px;
-  text-align: center;
-}
-
-.modalContent {
-  padding: 10px;
-  font-size: 14px;
-  color: #2c3e50;
-  text-align: center;
-}
-
-.modalActions {
-  position: absolute;
-  bottom: 2px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.actionsContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.closeBtn {
-  cursor: pointer;
-  font-weight: 500;
-  padding: 4px 8px;
-  border-radius: 8px;
-  border: none;
-  font-size: 18px;
-  color: #2c3e50;
-  background: white;
-  transition: all 0.25s ease;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
-  position: absolute;
-  right: 0;
-  top: 0;
-  align-self: flex-end;
-  margin-top: -7px;
-  margin-right: -7px;
-}
-
-.closeBtn:hover {
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
-  transform: translate(-4px, 4px);
-}
-
-.deleteBtn {
-  margin-top: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  padding: 11px 28px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  border: none;
-  color: #fff;
-  background: #ff3e4e;
-  transition: all 0.25s ease;
-}
-
-.deleteBtn:hover {
-  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
-  transform: translateY(-5px);
-  background: #ff3e4e;
-}
-
-.cancelBtn {
-  margin-top: 10px;
-  cursor: pointer;
-  font-weight: 500;
-  padding: 11px 28px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  border: none;
-  color: #2c3e50;
-  background: #fcfcfc;
-  transition: all 0.25s ease;
-}
-
-.cancelBtn:hover {
-  box-shadow: none;
-  transform: none;
-  background: whitesmoke;
-}
+FOOTER
 */
+
+.footer-wrapper {
+  background-color: rgb(57, 28, 11);
+  color: grey;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+/*
+FORUM
+*/
+
+.rules {
+  font-family: Cabin;
+  padding-top: 2rem;
+  padding-left: 3rem;
+  font-size: 1.2rem;
+}
+.rules-list {
+  font-family: Cabin;
+  font-size: 1rem;
+  padding-left: 5rem;
+}
+
+/*
+RESOURCES
+*/
+
+.resources {
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+.links {
+  color: forestgreen;
+  font-family: Cabin;
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+.list {
+  justify-content: start;
+  align-items: center;
+  padding-top: 1.2rem;
+}
+.item {
+  font-size: 1.5rem;
+}

@@ -1,6 +1,75 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import request from "../services/api.request";
+import { FORUMS } from "../services/auth.constants";
 
+export default function Forum({ input, setInput, posts, setPosts }) {
+    const [forums, setForums] = useState([]);
 
+    useEffect(() => {
+        request({ url: FORUMS, method: 'get'})
+        .then(resp => {
+            setForums(resp.data);
+        });
+    }, []);
+    console.log(forums.topics); 
+
+    //places the value input by user to the text input
+    //const [filter, setFilter] = useState('all');
+    const inputHandler = (e) => {
+        setInput(e.target.value);
+    }
+    //on clicking enter, this sets my todo to the given input and gives the time as an id
+    //used empty string at end to clear input field after entering
+    const submitHandler = (e) => {
+        if(e.key === 'Enter') {
+            setPosts([
+                ...posts,
+                {
+                    text: input,
+                    done: false,
+                }
+            ])
+            setInput('')
+        };
+    }
+
+    //draws my input, adds fns to it and draws my buttons below-theyre not working yet
+    return (
+        <>
+        <div className="forum-head">
+        <h1>Forums</h1>
+        <h4 className="rules">Please adhere to the Hiker's Haven Forum rules of decorum.</h4>
+            <div>
+            <ol className="rules-list"> 
+                <li>Don't use foul or demeaning language (your account will be deleted).</li>
+                <li>Photos are not allowed, although you can post links to your Instagram or Ocular in your post.</li>
+                <li>Political and religious posts or comments are not allowed (this is a family friendly and inclusive site).</li> 
+            </ol>
+            </div>
+        
+        </div>
+        <div className="container">
+            <h2 className= 'title'>Forums</h2>
+            <div className='add-task'>
+            <input
+                type='text'
+                placeholder='Add Post'
+                value={input}
+                name='text'
+                className='input'
+                onChange={inputHandler} 
+            />
+            </div>
+            <div className="post-btn">
+                <button className="make-post"
+                    onClick={submitHandler}>
+                </button>
+            </div>
+        </div>
+        </>
+    );
+};
+/*
 const Forum = () => {
   return (
     <div>
@@ -89,3 +158,4 @@ const Forum = () => {
 };
 
 export default Forum;
+*/

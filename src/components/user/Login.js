@@ -27,8 +27,8 @@ function Login() {
           currentUserToken: resp.access,
           currentUser: data
         })
-        //navigate('/profile')
-        //window.location.reload()
+        //navigate('/')
+        window.location.reload()
       });
   }
 

@@ -97,14 +97,16 @@ const Navbar = () => {
 
   return (
     <div className='header-wrapper'>      
-      <h1>HIKER'S HAVEN FORUM</h1>
       {
         state &&(
-        <div className='header-menu'>
+        <>
+          <h1 className='title'>HIKER'S HAVEN FORUM</h1>
+          <div className='header-menu'>
             <Link to='/'>Home</Link>
             <Link to='/Forums/'>Forums</Link>
             <Link to='/Resources/'>Links</Link>
-        </div>
+          </div>
+        </>
         )
       }
       <div className='h-menu'>
