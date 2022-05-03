@@ -1,15 +1,17 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
 //import Modal from "../Modal";
+//import { createPortal }from "react-dom";
 
 import jwtDecode from "jwt-decode";
+//import { Modal } from "bootstrap";
 
 function Login() {
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
-  const [ /*state, */dispatch ] = useGlobalState();
+  const [ dispatch ] = useGlobalState();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +27,8 @@ function Login() {
           currentUserToken: resp.access,
           currentUser: data
         })
-        navigate('/profile')
+        //navigate('/profile')
+        //window.location.reload()
       });
   }
 
@@ -33,7 +36,7 @@ function Login() {
       <div className="c-form">
         <form onSubmit={handleLogin}>
           <div>
-            <label htmlFor="username">UserName:</label>
+            <label htmlFor="username">Username:</label>
             <input
               type="text"
               id="username"

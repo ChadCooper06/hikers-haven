@@ -1,11 +1,16 @@
-import React, { useRef }  from "react";
+import React, { useState, useRef }  from "react";
 import { Form } from "react-bootstrap";
-//import ReactPortal from "./ReactPortal";
+import ReactPortal from "./ReactPortal";
 import Login from "./user/Login"
-import { createPortal }from "react-dom";
+//import { createPortal }from "react-dom";
 
-function Modal({ isOpen, handleLogin, setShowModal }) {
+function Modal({ isOpen, handleLogin }) {
   if (!isOpen) return null;
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
   // close the modal when clicking outside the modal.
   const modalRef = useRef();
   const handleClose = (e) => {
@@ -16,14 +21,16 @@ function Modal({ isOpen, handleLogin, setShowModal }) {
   
   return (
     //render the modal JSX in the portal div.
-    createPortal(
+    <ReactPortal>
       <div className="container" 
       ref={modalRef} 
       onClick={handleClose}>
         <div className="modal">
-        <button onClick={() => setShowModal(false)}>X</button>
+        <button onClick={openModal}>Login</button>
+          {showModal ? <Modal setShowModal={setShowModal} /> : null}
+          <Login />
           <Form> {Login}
-            {/* <Form.Group 
+             <Form.Group 
               className="form1" 
               controlId="exampleForm.ControlInput1"
               >
@@ -40,7 +47,7 @@ function Modal({ isOpen, handleLogin, setShowModal }) {
               >
               <Form.Label className="pass">Password</Form.Label>
               <Form.Control as="textarea" rows={1} />
-            </Form.Group> */}
+            </Form.Group> 
           </Form>
           <button onClick={handleLogin} className='login-btn'>
             Login
@@ -50,8 +57,8 @@ function Modal({ isOpen, handleLogin, setShowModal }) {
           </button>
           {/* <div className="modal-content">{children}</div> */}
         </div>
-      </div>,
-    document.getElementById("portal"))
+      </div>
+    </ReactPortal>
   );
 };
   

@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "./index.css";
 import { GlobalProvider } from "./context/GlobalState";
 import Navbar from "./components/Navbar";
-import { Outlet } from "react-router-dom";
-//import { Button, Navbar } from "react-bootstrap";
+import { Outlet, useLocation } from "react-router-dom";
 import Modal from "./components/Modal";
-//import Modal2 from "./components/Modal2";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import Footer from './components/Footer';
+import Home from "./Routes/Home";
 
 // function App() {
 //   return (
@@ -28,23 +27,12 @@ import Footer from './components/Footer';
 
 function App() {
 
+  const location = useLocation();
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
     setShowModal(true);
   };
-  // return (
-  //   <GlobalProvider>
-  //   <Navbar />
-  //   <div className="App">
-  //     <h1>Popup Modal</h1>
-  //     <button onClick={openModal}>Open Modal</button>
-  //     {showModal ? <Modal setShowModal={setShowModal} /> : null}
-  //   </div>
-  //   <Outlet />
-  //   <Footer />
-  //   </GlobalProvider>
-  // );
 
   return (
     <GlobalProvider>
@@ -59,6 +47,7 @@ function App() {
         {showModal ? <Modal setShowModal={setShowModal} /> : null}
           <Register />
       </Modal>
+      {location.pathname === "/" && <Home />}
       <Outlet />
       <Footer />
     </GlobalProvider>
