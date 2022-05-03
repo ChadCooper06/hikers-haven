@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
-import Modal from "../Modal";
+//import Modal from "../Modal";
 
 import jwtDecode from "jwt-decode";
 
@@ -30,7 +30,6 @@ function Login() {
   }
 
   return (
-    <Modal>
       <div className="c-form">
         <form onSubmit={handleLogin}>
           <div>
@@ -60,7 +59,6 @@ function Login() {
           />
         </form>
       </div>
-    </Modal>
   );
 };
 

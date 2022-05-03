@@ -99,9 +99,7 @@ const Navbar = () => {
 
   return (
     <div className='header-wrapper'>      
-      <Link to="/">
-          <h1>HIKER'S HAVEN FORUM</h1>
-      </Link>
+      <h1>HIKER'S HAVEN FORUM</h1>
       {
       state &&(
       <div className='header-menu'>
@@ -117,13 +115,11 @@ const Navbar = () => {
         <div className='login'>
           <button
             className="login-button"
-            onClick={() => {dispatch({ Login })
+            onClick={() => {dispatch(Login() )
               }
             }>
             Login
           </button>
-          <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-          </Modal>
         </div>
         )}
         {

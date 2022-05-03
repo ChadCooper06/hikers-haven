@@ -1,33 +1,46 @@
-import React from "react";
+import React, { useRef }  from "react";
 import { Form } from "react-bootstrap";
-import ReactPortal from "./ReactPortal";
+//import ReactPortal from "./ReactPortal";
+import Login from "./user/Login"
+import { createPortal }from "react-dom";
 
-
-function Modal({ isOpen, handleClose, handleLogin }) {
-    if (!isOpen) return null;
+function Modal({ isOpen, handleLogin, setShowModal }) {
+  if (!isOpen) return null;
+  // close the modal when clicking outside the modal.
+  const modalRef = useRef();
+  const handleClose = (e) => {
+    if (e.target === modalRef.current) {
+      setShowModal(false);
+    }
+  };
   
-    return (
-      <ReactPortal>
+  return (
+    //render the modal JSX in the portal div.
+    createPortal(
+      <div className="container" 
+      ref={modalRef} 
+      onClick={handleClose}>
         <div className="modal">
-          <Form>
-            <Form.Group 
+        <button onClick={() => setShowModal(false)}>X</button>
+          <Form> {Login}
+            {/* <Form.Group 
               className="form1" 
               controlId="exampleForm.ControlInput1"
-            >
+              >
               <Form.Label className="user">Username</Form.Label>
               <Form.Control
               type="email"
               placeholder="name@example.com"
               autoFocus
               />
-            </Form.Group>
-            <Form.Group
+              </Form.Group>
+              <Form.Group
               className="form1"
               controlId="exampleForm.ControlTextarea1"
-            >
+              >
               <Form.Label className="pass">Password</Form.Label>
               <Form.Control as="textarea" rows={1} />
-            </Form.Group>
+            </Form.Group> */}
           </Form>
           <button onClick={handleLogin} className='login-btn'>
             Login
@@ -37,11 +50,19 @@ function Modal({ isOpen, handleClose, handleLogin }) {
           </button>
           {/* <div className="modal-content">{children}</div> */}
         </div>
-      </ReactPortal>
-    );
-  }
+      </div>,
+    document.getElementById("portal"))
+  );
+};
   
 export default Modal;
+
+
+ 
+
+
+
+
 
 // import React, {
 //   createContext, 
