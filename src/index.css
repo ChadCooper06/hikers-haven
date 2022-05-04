@@ -81,6 +81,21 @@ h1 {
   height: 60vh;
   width: 100%;
 }
+.intro {
+  overflow: hidden;
+  position: relative;
+}
+.intro-bg {
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.intro-text {
+  position: relative;
+}
 
 /*
 LOGIN/SIGNUP MODAL

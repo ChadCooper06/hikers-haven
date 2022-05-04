@@ -72,7 +72,7 @@ export default function Forum() {
                             <div className='forum-list'>
                                 <ol>
                                     <li className="forum-item">
-                                        {forums.data}
+                                        {forums.topics}
                                     </li>
                                 </ol>
                             </div>
