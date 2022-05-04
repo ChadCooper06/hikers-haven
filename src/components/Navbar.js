@@ -6,6 +6,7 @@ import Login from './user/Login';
 import Register from './user/Register';
 import Modal from './Modal';
 import AuthService from '../services/auth.service';
+import {FaHiking} from 'react-icons/fa'
 
 // function NavBar() {
 //   const [ state, dispatch ] = useGlobalState();
@@ -100,7 +101,7 @@ const Navbar = () => {
       {
         state &&(
         <>
-          <h1 className='title'>HIKER'S HAVEN FORUM</h1>
+          <h1 className='title'><FaHiking />HIKER'S HAVEN FORUM</h1>
           <div className='header-menu'>
             <Link to='/'>Home</Link>
             <Link to='/Forums/'>Forums</Link>

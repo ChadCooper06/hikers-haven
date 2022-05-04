@@ -11,7 +11,6 @@ export default function Forum({ input, setInput, posts, setPosts }) {
             setForums(resp.data);
         });
     }, []);
-    console.log(forums.topics); 
 
     //places the value input by user to the text input
     //const [filter, setFilter] = useState('all');
@@ -43,7 +42,8 @@ export default function Forum({ input, setInput, posts, setPosts }) {
             <ol className="rules-list"> 
                 <li>Don't use foul or demeaning language (your account will be deleted).</li>
                 <li>Photos are not allowed, although you can post links to your Instagram or Ocular in your post.</li>
-                <li>Political and religious posts or comments are not allowed (this is a family friendly and inclusive site).</li> 
+                <li>Political and religious posts or comments are not allowed (this is a family friendly and inclusive site).</li>
+                <li>Selling of items on this site is not allowed.</li> 
             </ol>
             </div>
         
