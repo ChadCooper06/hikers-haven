@@ -4,7 +4,9 @@ import React from 'react';
 export default function Post ({ post, posts, setPosts }) {
     
     const clickHandler = () => {
-        (post.done === false) ? (post.done === true) : (post.done === false); 
+        return (
+            post.done === false ? true : false
+            )
     }
 
     //activates when delete is clicked and deletes the post

@@ -101,11 +101,13 @@ const Navbar = () => {
       {
         state &&(
         <>
-          <h1 className='title'><FaHiking />HIKER'S HAVEN FORUM</h1>
-          <div className='header-menu'>
-            <Link to='/'>Home</Link>
-            <Link to='/Forums/'>Forums</Link>
-            <Link to='/Resources/'>Links</Link>
+          <div className='header-title'>
+            <h1 className='title'><FaHiking />HIKER'S HAVEN FORUM</h1>
+            <div className='header-menu'>
+              <Link to='/'>Home</Link>
+              <Link to='/Forums/'>Forums</Link>
+              <Link to='/Resources/'>Links</Link>
+            </div>
           </div>
         </>
         )

@@ -3,9 +3,10 @@
   src: url('./assets/Cabin-VariableFont_wdth\,wght.ttf') format('truetype');
 }
 html {
-  background-color: burlywood; /* Will replace with a photo maybe*/
   background-image: url('./assets/pexels-brady-knoll-5187131.jpg');
-  background-size: 1200px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -14,17 +15,23 @@ HEADER
 */
 
 .header-wrapper {
-  display: 'flexbox';
+  display: flexbox;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: relative;
   width: 100%;
-  background-color: transparent;
+  background-color: #e9e7e8;
+}
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 .header-menu {
+  position: right;
   font-family: Cabin;
-  display: flex;
+  display: inline-flex;
   padding-right: 1.2rem;
   font-size: 1.5rem;
   justify-content: flex-end;
@@ -59,7 +66,7 @@ h1 {
   color: rgb(16, 53, 17);
 }
 .title {
-  border: whitesmoke;
+  position: left;
 }
 .main-page {
   padding-bottom: 60px;
@@ -159,6 +166,11 @@ FORUM
 RESOURCES
 */
 
+.resource-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .resources {
   justify-content: center;
   align-items: flex-start;
@@ -177,4 +189,20 @@ RESOURCES
 }
 .item {
   font-size: 1.5rem;
+}
+.item:hover {
+  color: #37221D;
+}
+.trail-sign {
+  padding-right: 2.5rem;
+}
+.map {
+  width: 550px;
+  height: 300px;
+  padding-right: 3.5rem;
+}
+.trail-map {
+  height: 95%;
+  width: 95%;
+  padding: 2.5%
 }
