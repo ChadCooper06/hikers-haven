@@ -1,3 +1,25 @@
+// import React, { useState } from 'react';
+// import '../App.css'
+
+// export const Modal = ({children}) => {
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   const close = () => {
+//     setIsOpen(false);
+//   }
+
+//     return (
+//         <div className='modal'>
+//             <div className='modal-content'>
+//             { children }
+//             </div>
+//         </div>
+//     );
+// };
+
+
+
+
 import React, { useState, useRef }  from "react";
 import { Form } from "react-bootstrap";
 import ReactPortal from "./ReactPortal";
@@ -55,7 +77,6 @@ function Modal({ isOpen, handleLogin }) {
           <button onClick={handleClose} className="close-btn">
             Close
           </button>
-          {/* <div className="modal-content">{children}</div> */}
         </div>
       </div>
     </ReactPortal>
@@ -63,88 +84,3 @@ function Modal({ isOpen, handleLogin }) {
 };
   
 export default Modal;
-
-
- 
-
-
-
-
-
-// import React, {
-//   createContext, 
-//   useContext, 
-//   useState, 
-//   cloneElement,
-// } from "react";
-// import "../index.css";
-// import ReactPortal from "./ReactPortal";
-
-
-// const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
-
-// const ModalContext = createContext()
-
-// function Modal(props) {
-//   const [isOpen, setIsOpen] = useState(false)
-//   return (
-//     <ReactPortal>
-//     <div className="modal">
-//       <ModalContext.Provider className="modal-content" value={[isOpen, setIsOpen]} {...props} />
-//     </div>
-//     </ReactPortal>
-//   )
-// }
-
-// function ModalDismissButton ({ children: child }) {
-//   const [, setIsOpen] = useContext(ModalContext)
-//     return cloneElement(child, {
-//     onClick: callAll(() => setIsOpen(false), child.props.onClick),
-//     })
-// }
-
-// function ModalOpenButton ({ children: child }) {
-//   const [, setIsOpen] = useContext(ModalContext)
-//   return cloneElement(child, {
-//     onClick: callAll(() => setIsOpen(true), child.props.onClick),
-//   })
-// }
-
-// function ModalContentsBase (props) {
-//   const [isOpen, setIsOpen] = useContext(ModalContext)
-//   return (
-//     <div open={isOpen} onClose={() => setIsOpen(false)} {...props}>
-//       {props.children}
-//     </div>
-//   )
-// }
-
-  
-// function ModalContents ({ title, children, ...props }) {
-//   return (
-//     <ModalContentsBase {...props}>
-//       <div style={{ padding: "20px" }}>
-//         <div className="m-contents" css={{ display: "flex", justifyContent: "flex-end" }}>
-//           <ModalDismissButton>
-//             <button className="close">Close</button>
-//           </ModalDismissButton>
-//         </div>
-//         <div>{title}</div>
-//         {children}
-//       </div>
-//     </ModalContentsBase>
-//   );
-// };
-
-// export { Modal, ModalDismissButton, ModalOpenButton, ModalContents };
-
-// export const Modal = (props) => {
-//   return (
-//     <div className='modal'>
-//       <div className='modal-content'>
-          
-//         { props.children }
-//       </div>
-//     </div>
-//   );
-// };

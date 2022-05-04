@@ -8,6 +8,7 @@ html {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  backface-visibility: visible;
 }
 
 /*
@@ -160,6 +161,20 @@ FORUM
   font-family: Cabin;
   font-size: 1rem;
   padding-left: 5rem;
+}
+.forum-item {
+  list-style: none;
+}
+.forum-post {
+  list-style: none;
+}
+
+/*
+POSTS
+*/
+
+.post-input {
+  size: 30%;
 }
 
 /*

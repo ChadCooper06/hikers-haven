@@ -3,3 +3,4 @@ export const LOGIN_ENDPOINT = "hikers_haven/user/login/"
 export const REGISTER_ENDPOINT = "hikers_haven/user/signup/"
 export const REFRESH_ENDPOINT = "token/refresh/"
 export const FORUMS = "forums/";
+export const POSTS = "posts/";

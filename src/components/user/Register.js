@@ -80,7 +80,6 @@ function Register() {
             type="text"
             id="firstName"
             name="fname"
-          
             required
             onChange={(e) => handleChange('firstName', e.target.value)} />
         </div>
