@@ -34,10 +34,11 @@ HEADER
   font-family: Cabin;
   display: inline-flex;
   padding-right: 1.2rem;
+  padding-bottom: 1rem;
   font-size: 1.5rem;
   justify-content: flex-end;
   align-items: center;
-  grid-gap: .5rem;
+  grid-gap: .7rem;
 }
 .h-menu {
   display: flex;
@@ -52,10 +53,20 @@ button {
   border: solid black 1px;
   background-color: rgb(207, 210, 211);
 }
+#Home:hover {
+  color: green;
+}
+#Forums:hover {
+  color: red;
+}
+#Links:hover {
+  color: brown;
+}
 
 /*
 TITLE AND HOME
 */
+
 h1 {
   font-family: Cabin;
   margin-bottom: 0rem;
@@ -84,17 +95,21 @@ h1 {
 .intro {
   overflow: hidden;
   position: relative;
+  height: auto;
 }
 .intro-bg {
   opacity: 0.6;
   position: absolute;
+  padding-left: 5rem;
   left: 0;
   top: 0;
-  width: 100%;
-  height: auto;
+  width: 500px;
+  height: 300px;
 }
 .intro-text {
   position: relative;
+  font-size: 1.2rem;
+  padding: 0rem 2rem;
 }
 
 /*
@@ -139,7 +154,7 @@ LOGIN/SIGNUP MODAL
 .pass {
   color: white;
 }
-.login, .register {
+.login,.register {
   justify-content: right;
 }
 .m-contents {
@@ -177,11 +192,25 @@ FORUM
   font-size: 1rem;
   padding-left: 5rem;
 }
-.forum-item {
-  list-style: none;
+.forum-container {
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.forum-title {
+  padding-left: 2rem;
 }
 .forum-post {
   list-style: none;
+  padding-left: 2rem;
+}
+.accordion-header {
+  font-size: 3rem;
+  background-color:rgb(107, 150, 107);
+}
+.accordion-button {
+  font-family: Cabin;
+  font-size: 1.5rem;
 }
 
 /*

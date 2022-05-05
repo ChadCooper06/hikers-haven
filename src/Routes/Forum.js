@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import request from "../services/api.request";
 import { FORUMS } from "../services/auth.constants";
 import { useGlobalState } from "../context/GlobalState";
+//import Post from "./Post";
 //import { POSTS } from "../services/auth.constants";
 
 export default function Forum() {
+
     const [ forums, setForums ] = useState([]);
 
     const [ state ] = useGlobalState();
 
-    // const [ toggle, setToggle ] = useState(null);
+    const [ clicked, isClicked ] = useState(false);
 
-    // let handleToggle=(id)=>{
-    //     if(toggle===id){
-    //         setToggle(null);
-    //         return false
-    //     }
-    //    setToggle(id)
-       
-    // }
+    let handleToggle = (topic) => {
+        if(clicked === topic){
+            return isClicked(false)
+        }
+       isClicked(topic);
+    }
 
     useEffect(() => {
         request({ url: FORUMS, method: 'get'})
@@ -26,8 +26,6 @@ export default function Forum() {
             setForums(resp.data);
         });
     }, []);
-
-    
 
     //places the value input by user to the text input
     //const [posts, setPosts] = useState('all');
@@ -48,7 +46,36 @@ export default function Forum() {
     //     };
     // }
 
-    
+    const topicOut = forums.map((topic, index, key) => 
+        <div className="accordion" 
+            key={index} 
+            id={key}
+            >
+            <div>
+                <h2 className="accordion-header"
+                    id={topic}>
+                    <button className="accordion-button" 
+                        key={topic} 
+                        type="button" 
+                        onClick={() => handleToggle(topic)}
+                        data-bs-toggle="collapse" 
+                        aria-expanded="false" 
+                        aria-controls="accordion-body"
+                        >
+                        {topic.topics}
+                    </button>
+                </h2>
+                <div className="post-wrapper"
+                    aria-labelledby={index} 
+                    data-bs-parent={key}
+                >
+                    <div className="post-text">
+                        <strong>Posts go here.</strong> They will be about things.{/*<Post />*/}
+                    </div>
+                </div>
+            </div>
+        </div>)
+
     return (
         <>
         <div className="forum-wrapper">
@@ -67,52 +94,18 @@ export default function Forum() {
                                 </ol>
                             </div>
                         </div>
-                        <div className="container">
-                            <h2 className='title'>Forums</h2>
+                        <div className="forum-container">
+                            <h2 className='forum-title'>Forum Topics</h2>
                             <div className='forum-list'>
-                                <ol>
-                                    <li className="forum-item">
-                                        {forums.topics}
-                                    </li>
-                                </ol>
+                                    <div className="forum-item">
+                                        {topicOut}
+                                    </div>
                             </div>
                         </div>
                     </>
                 )
             }
         </div>
-        {/* <div>
-            {
-                !state.currentUser &&(
-                    <>
-                    <div className='add-post'>
-                        <input
-                            type='input'
-                            placeholder='Add Post'
-                            value={input}
-                            name='text'
-                            className='input'
-                            onChange={inputHandler} 
-                        />
-                        <div className="post-btn">
-                            <button className="make-post"
-                                onClick={submitHandler}>
-                            </button>
-                        </div>
-                    </div>
-                    </>
-                )
-            }   
-        </div> */}
         </>
     );
 };
-
-
-// <div className="row">
-//     <div className="col-sm-4">
-//         <h3>React Accordion</h3>
-//         <posts handleToggle={handleToggle} toggle={toggle} />
-//         </div>
-//     </div>
-// </div> 

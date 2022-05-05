@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
 //import Modal from "../Modal";
 //import { useDispatch }from "react-dom";
@@ -9,7 +9,7 @@ import jwtDecode from "jwt-decode";
 //import { Modal } from "bootstrap";
 
 function Login() {
-  //let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const [ dispatch ] = useGlobalState();
 
@@ -27,8 +27,8 @@ function Login() {
           currentUserToken: resp.access,
           currentUser: data
         })
-        //navigate('/')
-        window.location.reload()
+        navigate('./forums')
+        //window.location.reload()
       });
   }
 

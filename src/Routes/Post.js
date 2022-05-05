@@ -36,6 +36,7 @@ export default function Post ({ id, post, posts, setPosts }) {
         });
     }, []);
     
+    
     //this is the format of the posts themselves
     return(
         <div className='post-container'>
@@ -69,6 +70,32 @@ export default function Post ({ id, post, posts, setPosts }) {
     </div>
     )
 }
+
+/* <div>
+            {
+                !state.currentUser &&(
+                    <>
+                    <div className='add-post'>
+                        <input
+                            type='input'
+                            placeholder='Add Post'
+                            value={input}
+                            name='text'
+                            className='input'
+                            onChange={inputHandler} 
+                        />
+                        <div className="post-btn">
+                            <button className="make-post"
+                                onClick={submitHandler}>
+                            </button>
+                        </div>
+                    </div>
+                    </>
+                )
+            }   
+        </div> */
+
+
 /*
 return(
     <div className='list-container'>

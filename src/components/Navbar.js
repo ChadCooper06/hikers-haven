@@ -6,7 +6,8 @@ import Login from './user/Login';
 import Register from './user/Register';
 import Modal from './Modal';
 import AuthService from '../services/auth.service';
-import {FaHiking} from 'react-icons/fa'
+import { FaHiking } from 'react-icons/fa';
+import { GiCampingTent, GiDirectionSigns, GiCampfire } from 'react-icons/gi';
 
 
 const Navbar = () => {
@@ -23,9 +24,9 @@ const Navbar = () => {
           <div className='header-title'>
             <h1 className='title'><FaHiking />HIKER'S HAVEN FORUM</h1>
             <div className='header-menu'>
-              <Link to='/'>Home</Link>
-              <Link to='/Forums/'>Forums</Link>
-              <Link to='/Resources/'>Links</Link>
+              <Link to='/' className='fs-1' id='Home'><GiCampingTent /></Link>
+              <Link to='/Forums/' className='fs-1' id='Forums'><GiCampfire /></Link>
+              <Link to='/Resources/' className='fs-1' id='Links'><GiDirectionSigns /></Link>
             </div>
           </div>
         </>
