@@ -6,7 +6,7 @@ import App from './App';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from './Routes/Home';
 import Forum from './Routes/Forum';
-import Post from './Routes/Post';
+//import Post from './Routes/Post';
 import Resources from './Routes/Resources';
 import Login from './components/user/Login';
 import Register from './components/user/Register';
@@ -22,7 +22,6 @@ root.render(
         <Route path='/' element={<App />}>
           <Route path='Home/' element={<Home />} />
           <Route path="Forums/" element={<Forum />} />
-          <Route path="Posts/" element={<Post />} />
           <Route path="Resources/" element={<Resources />} />
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />

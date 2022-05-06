@@ -89,7 +89,7 @@ h1 {
   font-size: 1.2rem;
   display: flex;
   flex-flow: nowrap;
-  height: 60vh;
+  height: 50vh;
   width: 100%;
 }
 .intro {
@@ -110,6 +110,19 @@ h1 {
   position: relative;
   font-size: 1.2rem;
   padding: 0rem 2rem;
+}
+.pinned {
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+  padding: 1rem;
+}
+h2 {
+  border-bottom: 1px solid black;
+}
+.pin-text {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
 }
 
 /*

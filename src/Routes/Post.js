@@ -1,77 +1,81 @@
-import React, { useEffect, useState } from 'react';
-import { useGlobalState } from '../context/GlobalState';
-import { POSTS } from '../services/auth.constants';
+/*import React, { useEffect} from 'react';
 import request from '../services/api.request';
+import { useGlobalState } from '../context/GlobalState';
+//import { POSTS } from '../services/auth.constants';
 
 
-export default function Post ({ id, post, posts, setPosts }) {
 
-    const [toggle, setToggle] = useState(null);
+//const [toggle, setToggle] = useState(null);
 
-    const [ state ] = useGlobalState();
+const [ posts, setPosts] = useGlobalState("");
 
-    // const clickHandler = () => {
-    //     return (
-    //         post.done === false ? true : false
-    //         )
+    const postOut = posts.map(post => {
+
+//activates when delete is clicked and deletes the post
+// const deleteHandler = () => {
+    //     setPosts(posts.filter(item => item.id !== post.id))
     // }
-
-    //activates when delete is clicked and deletes the post
-    const deleteHandler = () => {
-        setPosts(posts.filter(item => item.id !== post.id))
-    }
-
-    let handleToggle=(id)=>{
-        if(toggle===id){
-            setToggle(null);
-            return false
-        }
-       setToggle(id)
-    }
-
+    
     useEffect(() => {
         request({ url: POSTS, method: 'get'})
         .then(resp => {
             setPosts(resp.data);
         });
-    }, []);
+    }, [posts]);
+
+    return(
+        <div className="format">
+            <ol>
+                <li>
+                <h2 className="post-header">
+                    {post.topic[0].title}
+                </h2>
+                <div className="post-content">
+                    {post.topic[0].content}
+                     <h6 className='posted-by'
+                        id={username}>
+                        <div className='poster' key={username}>
+                        {username.posts}
+                        </div>
+                    </h6> 
+                </div>
+                </li>
+            </ol>
+        </div>)
+    }
+    )
     
-    
+    export default function Post () {
+    const [ state ] = useGlobalState();
     //this is the format of the posts themselves
     return(
         <div className='post-container'>
         {
             state &&(  
-                useEffect((value)=>{
-                    const {post} = value;
-                        return(
-                            <div className="card" key={id}>
-                            <div className="card-header" onClick={()=>handleToggle} style={{cursor:"pointer"}}> <b>{(id===toggle)?'-':'+'}</b></div>
-                            {(post===toggle)?<div className="card-body"></div>:''} 
-                        </div>    
-                    )
-                }) 
-            )
-        }    
-        <div className='list-container'>
-            <div className='list'>
-                <ol>
-                    <li className='post'>
-                       {post} 
-                    </li>
-                </ol>
+            <>
+                <div className='forum-list'>
+                    <div className="forum-item">
+                        {postOut}
+                    </div>
+                </div>
+            </>
+        )
+        }
+
+       
+        </div>
+    )
+}
+ {
+            state.currentUser &&(
                 <button
                     type='button'
                     className='delete'
-                    onClick={() => deleteHandler(posts)} 
-                />
-            </div>
-        </div>
-    </div>
-    )
-}
-
-/* <div>
+                    // onClick={() => deleteHandler(post.posts)} 
+                >Delete</button>
+            )
+        }   
+ <div>
             {
                 !state.currentUser &&(
                     <>
@@ -93,34 +97,7 @@ export default function Post ({ id, post, posts, setPosts }) {
                     </>
                 )
             }   
-        </div> */
-
-
-/*
-return(
-    <div className='list-container'>
-        <div className='list'>
-            <input type='checkbox' 
-                className='check' 
-                onClick={checkHandler} 
-                defaultChecked={false} 
-            />
-            <h4 className='todo'>
-            {todo.text}
-            </h4>
-            <FaTimes 
-                type='button'
-                className='delete'
-                style={{justifyContent: 'space-between'}} 
-                onClick={() => deleteHandler(todos)} 
-            />
-        </div>
-    </div>
-)
-
-
-
-
+        </div> 
 
 
 

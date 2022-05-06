@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <div className='header-wrapper'>      
-      {
+      { // Shows always
         state &&(
         <>
           <div className='header-title'>
@@ -33,7 +33,7 @@ const Navbar = () => {
         )
       }
       <div className='h-menu'>
-        {
+        { // Shows when user is not logged in
           !state.currentUser &&(
             <div className='login'>
               <Link to='/Login'><button 
@@ -57,7 +57,7 @@ const Navbar = () => {
             </div>
           )
         }
-        {
+        { // Shows only when user is logged in
           state.currentUser &&(
             <div className='logout'>
               <button className='logout-button'

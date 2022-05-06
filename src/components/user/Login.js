@@ -27,8 +27,8 @@ function Login() {
           currentUserToken: resp.access,
           currentUser: data
         })
-        navigate('./forums')
-        //window.location.reload()
+        navigate('/Home/')
+        window.location.reload()
       });
   }
 

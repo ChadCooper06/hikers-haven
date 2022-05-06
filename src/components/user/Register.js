@@ -2,12 +2,13 @@ import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
 //import Modal from "../Modal";
 //import { useGlobalState } from "../../context/GlobalState";
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Login from "./Login";
 
 function Register() {
   //const [ state, dispatch ] = useGlobalState();
-  //let navigate = useNavigate();
-  const [user, setUser] = useState({
+  let navigate = useNavigate();
+  const [ user, setUser ] = useState({
     username: "",
     password: "",
     passwordConf: "",
@@ -26,7 +27,7 @@ function Register() {
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(user)
-    //navigate('/Forum')
+    navigate('/Home/')
     window.location.reload()
   }
 
@@ -103,6 +104,7 @@ function Register() {
             user.lastName &&
             user.email
           ) ? false : true}
+          onClick={<Login />}
         />
       </form>
     </div>

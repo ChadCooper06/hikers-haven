@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import request from "../services/api.request";
-import { FORUMS } from "../services/auth.constants";
 import { useGlobalState } from "../context/GlobalState";
+import { FORUMS } from "../services/auth.constants";
 //import Post from "./Post";
 //import { POSTS } from "../services/auth.constants";
 
@@ -47,6 +47,7 @@ export default function Forum() {
     // }
 
     const topicOut = forums.map((topic, index, key) => 
+        // Each needs a unique ID and I am using the index of each as its key and that key as the ID
         <div className="accordion" 
             key={index} 
             id={key}
@@ -70,8 +71,18 @@ export default function Forum() {
                     data-bs-parent={key}
                 >
                     <div className="post-text">
-                        <strong>Posts go here.</strong> They will be about things.{/*<Post />*/}
+                        <p>Lorem ipsum information here as a place holder</p>
                     </div>
+                    {
+                        state.currentUser &&(
+                            <>
+                                <div className="make-post">
+                                    <textarea rows="5" cols="80"></textarea>
+                                    <input type="submit"></input>
+                                </div>
+                            </>
+                        )
+                    }
                 </div>
             </div>
         </div>)
@@ -79,7 +90,7 @@ export default function Forum() {
     return (
         <>
         <div className="forum-wrapper">
-            {
+            { // Shows these no matter if a user is logged in or not
                 state &&(
                     <>
                         <div className="forum-head">
