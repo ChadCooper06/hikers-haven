@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import request from "../services/api.request";
 import { useGlobalState } from "../context/GlobalState";
 import { FORUMS } from "../services/auth.constants";
-//import Post from "./Post";
+import PostList from "./Topic";
 //import { POSTS } from "../services/auth.constants";
 
 export default function Forum() {
@@ -52,39 +52,37 @@ export default function Forum() {
             key={index} 
             id={key}
             >
-            <div>
-                <h2 className="accordion-header"
-                    id={topic}>
-                    <button className="accordion-button" 
-                        key={topic} 
-                        type="button" 
-                        onClick={() => handleToggle(topic)}
-                        data-bs-toggle="collapse" 
-                        aria-expanded="false" 
-                        aria-controls="accordion-body"
+            
+            {
+                state && (
+                    <div className="accordion-item">
+                        <h2 className="accordion-header"
+                            id={topic}>
+                            <button className="accordion-button" 
+                                key={topic} 
+                                type="button" 
+                                onClick={() => handleToggle()}
+                                data-bs-toggle="collapse" 
+                                date-bs-target="this.collapse"
+                                aria-expanded="false"
+                                aria-controls="accordion-collapse"
+                                >
+                                {topic.topics}
+                            </button>
+                        </h2>
+                        <div className="post-wrapper"
+                            id="this.collapse"
+                            aria-labelledby={index} 
+                            data-bs-parent={key}
                         >
-                        {topic.topics}
-                    </button>
-                </h2>
-                <div className="post-wrapper"
-                    aria-labelledby={index} 
-                    data-bs-parent={key}
-                >
-                    <div className="post-text">
-                        <p>Lorem ipsum information here as a place holder</p>
+                            <div className="post-text">
+                                <div>sample</div>
+                                <div>{<PostList />}</div>
+                            </div>
+                        </div>
                     </div>
-                    {
-                        state.currentUser &&(
-                            <>
-                                <div className="make-post">
-                                    <textarea rows="5" cols="80"></textarea>
-                                    <input type="submit"></input>
-                                </div>
-                            </>
-                        )
-                    }
-                </div>
-            </div>
+                )
+            }
         </div>)
 
     return (

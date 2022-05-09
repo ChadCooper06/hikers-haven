@@ -11,7 +11,7 @@ import jwtDecode from "jwt-decode";
 function Login() {
   let navigate = useNavigate();
 
-  const [ dispatch ] = useGlobalState();
+  const [, dispatch ] = useGlobalState();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

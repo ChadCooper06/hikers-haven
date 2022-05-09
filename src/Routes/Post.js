@@ -1,15 +1,47 @@
+import React, { useEffect, useState } from "react";
+import { POSTS } from '../services/auth.constants';
+import request from "../services/api.request";
+
+
+export default function Post() {
+
+    const [ post, setPosts ] = useState([]);
+
+    // const deleteHandler = () => {
+    //     setPosts(posts.filter(item => item.id !== post.id))
+    // }
+
+
+    useEffect(() => {
+        request({ url: POSTS, method: 'get'})
+        .then(resp => {
+            setPosts(resp.data);
+        });
+    }, []);
+
+    return (
+        <div className='post-box'>
+            <div className='post-list'>
+                <h4 className='post-name'>
+                    {post.title}
+                </h4>
+                <div className="post-text">
+                    {post.content}
+                </div>
+            </div>
+        </div>
+    ) 
+}
+
+
 /*import React, { useEffect} from 'react';
 import request from '../services/api.request';
 import { useGlobalState } from '../context/GlobalState';
-//import { POSTS } from '../services/auth.constants';
-
-
 
 //const [toggle, setToggle] = useState(null);
 
 const [ posts, setPosts] = useGlobalState("");
 
-    const postOut = posts.map(post => {
 
 //activates when delete is clicked and deletes the post
 // const deleteHandler = () => {
