@@ -6,7 +6,7 @@ import PostList from "./Topic";
 //import { POSTS } from "../services/auth.constants";
 
 export default function Forum() {
-
+    
     const [ forums, setForums ] = useState([]);
 
     const [ state ] = useGlobalState();
@@ -19,39 +19,26 @@ export default function Forum() {
         }
        isClicked(topic);
     }
-
+    
     useEffect(() => {
         request({ url: FORUMS, method: 'get'})
         .then(resp => {
             setForums(resp.data);
+        
         });
     }, []);
 
-    //places the value input by user to the text input
-    //const [posts, setPosts] = useState('all');
-    // const inputHandler = (e) => {
-    //     setInput(e.target.value);
-    // }
-   
-    // const submitHandler = (e) => {
-    //     if(e.key === 'Enter') {
-    //         setForums([
-    //             ...forums,
-    //             {
-    //                 text: input,
-    //                 done: false,
-    //             }
-    //         ])
-    //         setInput('')
-    //     };
-    // }
+    
+    // console.log(wild)
+
 
     const topicOut = forums.map((topic, index, key) => 
+    
         // Each needs a unique ID and I am using the index of each as its key and that key as the ID
         <div className="accordion" 
-            key={index} 
-            id={key}
-            >
+        key={index} 
+        id={key}
+        >
             
             {
                 state && (
@@ -63,7 +50,7 @@ export default function Forum() {
                                 type="button" 
                                 onClick={() => handleToggle()}
                                 data-bs-toggle="collapse" 
-                                date-bs-target="this.collapse"
+                                data-bs-target="this.collapse"
                                 aria-expanded="false"
                                 aria-controls="accordion-collapse"
                                 >
@@ -77,14 +64,16 @@ export default function Forum() {
                         >
                             <div className="post-text">
                                 <div></div>
+                                
                                 <div>{<PostList />}</div>
+                                
                             </div>
                         </div>
                     </div>
                 )
             }
         </div>)
-
+    // console.log(`${topicOut}`)
     return (
         <>
         <div className="forum-wrapper">
@@ -107,6 +96,7 @@ export default function Forum() {
                             <h2 className='forum-title'>Forum Topics</h2>
                             <div className='forum-list'>
                                     <div className="forum-item">
+                                        
                                         {topicOut}
                                     </div>
                             </div>

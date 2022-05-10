@@ -5,35 +5,46 @@ import { useGlobalState } from "../context/GlobalState";
 
 
 export default function Post() {
-
     const [ state ] = useGlobalState();
-
-    const [ post, setPosts ] = useState([]);
-
-    // const deleteHandler = () => {
-    //     setPosts(posts.filter(item => item.id !== post.id))
-    // }
-
+    
+    const [ post, setPost ] = useState([]);
+    const [ filtered, setFiltered ] = useState(post)
+    //let thing = post.posts
 
     useEffect(() => {
-        request({ url: POSTS, method: 'get'})
+        request({ url: POSTS, method: 'get' })
         .then(resp => {
-            setPosts(resp.data);
-        });
+            setPost(resp.data);
+            setFiltered(resp.data);
+        })
+        .catch(error => {
+            console.log('Error getting data: ' + error);
+            })
     }, []);
+
+    //https://7000-chadcooper0-hikershaven-06lvmwxp3f9.ws-us44.gitpod.io/posts/?forum__id=2
+
+    let postInfo = filtered.map((post, i) => [
+        <div className="filtered"
+            key={filtered+i}>
+            <div className="info-title">
+                {post.title}
+            </div>
+            <div className="info-body">
+                {post.content}
+            </div>
+        </div>
+        ]
+    )
 
     return (
         <>
             {state && (
-                
                 <div className='post-box'>
                     <div className='post-list'>
                         <h4 className='post-name'>
-                            {post.posts}
+                            {postInfo}
                         </h4>
-                        {/* <div className="post-text">
-                            {post.content}
-                        </div> */}
                     </div>
                 </div>
             )}

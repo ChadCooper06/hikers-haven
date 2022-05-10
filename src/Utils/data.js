@@ -1,7 +1,5 @@
 import axios from "axios";
 
-//let testServerAPI = 
-
 export async function axiosGet() {
   return axios
     .get(testServerAPI)

@@ -16,9 +16,6 @@ export default function PostList() {
   //const handleClose = () => setShow(false);
   //const handleShow = () => setShow(true);
 
-  // const inputHandler = (e) => {
-  //   setInput(e.target.value);
-  // }
   
   const handleChange = (key, value) => {
     setPost({
