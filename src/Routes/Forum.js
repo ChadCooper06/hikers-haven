@@ -76,7 +76,7 @@ export default function Forum() {
                             data-bs-parent={key}
                         >
                             <div className="post-text">
-                                <div>sample</div>
+                                <div></div>
                                 <div>{<PostList />}</div>
                             </div>
                         </div>
