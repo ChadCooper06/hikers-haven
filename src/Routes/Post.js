@@ -4,29 +4,28 @@ import request from "../services/api.request";
 import { useGlobalState } from "../context/GlobalState";
 
 
-export default function Post() {
+export default function Post(props) {
+    
     const [ state ] = useGlobalState();
     
-    const [ post, setPost ] = useState([]);
-    const [ filtered, setFiltered ] = useState(post)
-    //let thing = post.posts
-
+    const [ posts, setPost ] = useState([]);
+    
     useEffect(() => {
-        request({ url: POSTS, method: 'get' })
+        request({ url: POSTS + '?forum_id=' + props.forumId, method: 'get' })
         .then(resp => {
             setPost(resp.data);
-            setFiltered(resp.data);
         })
         .catch(error => {
             console.log('Error getting data: ' + error);
-            })
+        })
     }, []);
 
     //https://7000-chadcooper0-hikershaven-06lvmwxp3f9.ws-us44.gitpod.io/posts/?forum__id=2
-
-    let postInfo = filtered.map((post, i) => [
+    
+    
+    let postInfo = posts.map((post) => [
         <div className="filtered"
-            key={filtered+i}>
+            key={'poste'}>
             <div className="info-title">
                 {post.title}
             </div>

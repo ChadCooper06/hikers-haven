@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGlobalState } from "../context/GlobalState";
 import { Form } from "react-bootstrap";
-import Post from "./Post";
+//import Post from "./Post";
 //import { POSTS } from "../services/auth.constants";
 import request from "../services/api.request";
 import format from "date-fns/format";
@@ -15,18 +15,21 @@ export default function PostList() {
   //const [show, setShow] = useState(false);
   //const handleClose = () => setShow(false);
   //const handleShow = () => setShow(true);
-
+  //const [ filtered, setFiltered ] = useState(post)
   
   const handleChange = (key, value) => {
-    setPost({
-      ...post,
-      [key]: value,
-    });
-  };
+    return (
+      setPost({
+        ...post,
+        [key]: value,
+      })
+    )
+  }
 
   const handleCreatePost = async (e) => {
     e.preventDefault();
     const newPost = new FormData();
+    newPost.append('forum', post.forum);
     newPost.append("title", post.title);
     newPost.append("content", post.content);
     newPost.append("date_added", format(Date.now(), 'yyyy-MM-dd'));
@@ -43,13 +46,7 @@ export default function PostList() {
 
   return (
     <>
-      {
-        state &&(
-          <>
-            <Post />
-          </>
-        )
-      }
+      
       {
         state.currentUser &&(
           <div className='add-post'>
