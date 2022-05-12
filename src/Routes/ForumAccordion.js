@@ -12,12 +12,12 @@ import AccordionBody from "react-bootstrap/esm/AccordionBody";
 export default function ForumAccordion({ forum, index }) {
 
   return (
-    <Accordion>
-      <AccordionItem eventKey={index}>
-        <AccordionHeader>
+    <Accordion className="accordion">
+      <AccordionItem className="acccordion-item" eventKey={index}>
+        <AccordionHeader className="accordion-header">
           {forum.topics}
         </AccordionHeader>
-        <AccordionBody>
+        <AccordionBody className="accordion-body">
           <div>
             {<Post forumId={forum.id} />}
             {<PostList forumId={forum.id} />}

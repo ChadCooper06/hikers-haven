@@ -1,12 +1,10 @@
 import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
-//import Modal from "../Modal";
-//import { useGlobalState } from "../../context/GlobalState";
 import { useNavigate } from "react-router-dom";
 import Login from "./Login";
+import { Button } from "react-bootstrap";
 
 function Register() {
-  //const [ state, dispatch ] = useGlobalState();
   let navigate = useNavigate();
   const [ user, setUser ] = useState({
     username: "",
@@ -34,7 +32,7 @@ function Register() {
   return (
     <div className="c-form">
       <form onSubmit={handleRegister}>
-        <div>Throw on your boots and join us!<br />
+        <div><h6 className="register-intro">Throw on your boots and join us!</h6> <br />
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -93,7 +91,8 @@ function Register() {
             required
             onChange={(e) => handleChange('lastName', e.target.value)} />
         </div>
-        <input
+        <Button
+          variant="outline-danger"
           type="submit"
           value="Register"
           disabled={(
@@ -105,7 +104,7 @@ function Register() {
             user.email
           ) ? false : true}
           onClick={<Login />}
-        />
+        >Sign Up</Button>
       </form>
     </div>
   )

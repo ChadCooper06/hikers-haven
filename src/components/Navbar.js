@@ -4,15 +4,16 @@ import '../App.css';
 import { useGlobalState } from "../context/GlobalState";
 import Login from './user/Login';
 import Register from './user/Register';
-import Modal from './Modal';
+//import Modal from './Modal';
 import AuthService from '../services/auth.service';
 import { FaHiking } from 'react-icons/fa';
 import { GiCampingTent, GiDirectionSigns, GiCampfire } from 'react-icons/gi';
+import { Button } from 'react-bootstrap';
 
 
 const Navbar = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
+  //const [isOpen, setIsOpen] = useState(false);
 
   const [ state, dispatch ] = useGlobalState();
 
@@ -36,24 +37,22 @@ const Navbar = () => {
         { // Shows when user is not logged in
           !state.currentUser &&(
             <div className='login'>
-              <Link to='/Login'><button 
+              <Link to='/Login'><Button 
+                variant='primary'
                 className='login-button' 
                 onClick={() => {dispatch( Login )}}
-                >Login</button></Link>
-              <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-              </Modal>            
+                >Login</Button></Link>        
             </div>
           )
         }
         {
           !state.currentUser &&(
             <div className='register'>
-              <Link to='/Register'><button
+              <Link to='/Register'><Button
+                variant='primary'
                 className="signup-button" 
                 onClick={() => {dispatch( Register )}}
-                >Sign-up</button></Link>
-              <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
-              </Modal>
+                >Sign-up</Button></Link>
             </div>
           )
         }

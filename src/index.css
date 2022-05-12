@@ -2,6 +2,9 @@
   font-family: 'Cabin', 'sans-serif';  /* font I downloaded from Google */
   src: url('./assets/Cabin-VariableFont_wdth\,wght.ttf') format('truetype');
 }
+/* @media screen {
+  
+} */
 html {
   background-image: url('./assets/pexels-brady-knoll-5187131.jpg');
   background-size: cover;
@@ -111,24 +114,25 @@ h1 {
   font-size: 1.2rem;
   padding: 0rem 2rem;
 }
-.pinned {
-  justify-content: center;
-  align-items: center;
-  border: solid 1px black;
-  padding: 1rem;
-}
 h2 {
   border-bottom: 1px solid black;
-}
-.pin-text {
-  padding-bottom: 1rem;
-  font-size: 1.1rem;
 }
 
 /*
 LOGIN/SIGNUP MODAL
 */
 
+.c-form {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.register-intro {
+  font-family: Cabin;
+  font-size: 2.5rem;
+}
 .react-portal-wrapper {
   width: 106%;
   height: 106%;
@@ -194,6 +198,12 @@ FOOTER
 FORUM
 */
 
+.forum-wrapper {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
 .rules {
   font-family: Cabin;
   padding-top: 2rem;
@@ -209,29 +219,52 @@ FORUM
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  overflow: auto;
 }
 .forum-title {
-  padding-left: 2rem;
+  padding-left: 2.5rem;
 }
 .forum-post {
   list-style: none;
   padding-left: 2rem;
-}
-.accordion-header {
-  font-size: 3rem;
-  background-color:rgb(107, 150, 107);
-}
-.accordion-button {
-  font-family: Cabin;
-  font-size: 1.5rem;
 }
 
 /*
 POSTS
 */
 
+.filtered {
+  border-bottom: 2px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
 .post-input {
   size: 30%;
+}
+.info-title {
+  font-size: 2rem;
+  font-family: Cabin;
+  border-bottom: 1px solid rgb(107, 150, 107);
+  background-color: rgba(34, 139, 34, 0.1);
+  padding: .5rem;
+}
+.info-body {
+  font-size: 1.2rem;
+  font-family: Cabin;
+  padding-top: 5px;
+  overflow: auto;
+  padding: .5rem;
+}
+.accordion {
+  font-size: 2rem !important;
+}
+.accordion-header {
+  font-size: 2.5rem !important;
+}
+.accordion-body {
+  font-family: Cabin;
+  font-size: 1.2rem;
+  overflow: auto;
 }
 
 /*

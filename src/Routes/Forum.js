@@ -4,6 +4,7 @@ import { useGlobalState } from "../context/GlobalState";
 import { FORUMS } from "../services/auth.constants";
 import ForumAccordion from "./ForumAccordion";
 
+
 export default function Forum() {
     
   const [ forums, setForums ] = useState([]);
@@ -41,7 +42,7 @@ export default function Forum() {
               </div>
             </div>
             <div className="forum-container">
-              <h2 className='forum-title'>Forum Topics</h2>
+              <h2 className='forum-title'>Topics</h2>
               <div className='forum-list'>
                 <div className="forum-item">
                   {topicOut}

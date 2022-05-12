@@ -2,11 +2,9 @@ import React, { useState } from "react"
 import AuthService from "../../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../../context/GlobalState";
-//import Modal from "../Modal";
-//import { useDispatch }from "react-dom";
 
 import jwtDecode from "jwt-decode";
-//import { Modal } from "bootstrap";
+import { Button } from "react-bootstrap";
 
 function Login() {
   let navigate = useNavigate();
@@ -56,10 +54,11 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <input
+          <Button
+            variant="outline-dark"
             type="submit"
             value="Sign in"
-          />
+          >Login</Button>
         </form>
       </div>
   );
