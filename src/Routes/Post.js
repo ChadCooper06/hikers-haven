@@ -10,6 +10,10 @@ export default function Post(props) {
     
     const [ posts, setPost ] = useState([]);
     
+    // The posts in the DB are pulled and placed into the appropriate areas of the forum 
+    // based on the ID of the topic they were written under so they display in the singular 
+    // spot they need to be
+
     useEffect(() => {
         request({ url: POSTS + '?forum_id=' + props.forumId, method: 'get' })
         .then(resp => {
@@ -19,10 +23,9 @@ export default function Post(props) {
             console.log('Error getting data: ' + error);
         })
     }, []);
+    
+    // The layout of the information that is shown in each post-only title and content are visible in front end
 
-    //https://7000-chadcooper0-hikershaven-06lvmwxp3f9.ws-us44.gitpod.io/posts/?forum__id=2
-    
-    
     let postInfo = posts.map((post) => [
         <div className="filtered"
             key={'poste'}>
@@ -35,7 +38,7 @@ export default function Post(props) {
         </div>
         ]
     )
-
+        // Posts are visible all the time by all users, or none
     return (
         <>
             {state && (
