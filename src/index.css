@@ -129,6 +129,10 @@ LOGIN/SIGNUP MODAL
   padding-bottom: 1rem;
   padding-top: 1rem;
 }
+.login-intro {
+  font-family: Cabin;
+  font-size: 2.5rem;
+}
 .register-intro {
   font-family: Cabin;
   font-size: 2.5rem;
@@ -233,6 +237,9 @@ FORUM
 POSTS
 */
 
+.add-post {
+  margin-top: 1rem;
+}
 .filtered {
   border-bottom: 2px solid grey;
   border-left: 1px solid grey;

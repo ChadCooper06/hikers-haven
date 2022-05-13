@@ -33,7 +33,7 @@ function Login() {
   return (
       <div className="c-form">
         <form onSubmit={handleLogin}>
-          <div>
+          <div><h6 className="login-intro">Welcome back!</h6>
             <label htmlFor="username">Username:</label>
             <input
               type="text"

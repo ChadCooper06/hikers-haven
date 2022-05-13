@@ -59,13 +59,15 @@ const Navbar = () => {
         { // Shows only when user is logged in
           state.currentUser &&(
             <div className='logout'>
-              <button className='logout-button'
+              <Button 
+                variant='danger'
+                className='logout-button'
                 onClick={() => {
                   AuthService.logout()
                   window.location.reload()
                 }}
                 >Logout
-              </button>
+              </Button>
             </div>
           )
         }
