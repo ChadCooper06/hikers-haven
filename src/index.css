@@ -204,6 +204,11 @@ LOGIN/SIGNUP MODAL
   display: flex;
   justify-content: flex-end;
 }
+@media screen and (max-width: 768px) {
+  .c-form {
+    padding: 1rem;
+  }
+}
 
 /*
 FOOTER
