@@ -2,9 +2,6 @@
   font-family: 'Cabin', 'sans-serif';  /* font I downloaded from Google */
   src: url('./assets/Cabin-VariableFont_wdth\,wght.ttf') format('truetype');
 }
-/* @media screen {
-  
-} */
 html {
   background-image: url('./assets/pexels-brady-knoll-5187131.jpg');
   background-size: cover;
@@ -37,7 +34,7 @@ HEADER
   font-family: Cabin;
   display: inline-flex;
   padding-right: 1.2rem;
-  padding-bottom: 1rem;
+  padding-bottom: .5rem;
   font-size: 1.5rem;
   justify-content: flex-end;
   align-items: center;
@@ -51,11 +48,6 @@ HEADER
   padding-right: 1.2rem;
   padding-bottom: .5rem;
 }
-button {
-  border-radius: 15%;
-  border: solid black 1px;
-  background-color: rgb(207, 210, 211);
-}
 #Home:hover {
   color: green;
 }
@@ -64,6 +56,24 @@ button {
 }
 #Links:hover {
   color: brown;
+}
+@media screen and (max-width: 768px) {
+  .header-wrapper {
+    flex-direction: row;
+  }
+  .header-menu {
+    display: block;
+    max-height: fit-content;
+    padding-right: .5rem;
+    grid-gap: .3rem;
+  }
+  .h-menu {
+    flex-wrap: wrap;
+  }
+  .header-title {
+    display: flexbox;
+    flex-direction: row;
+  }
 }
 
 /*
@@ -110,12 +120,24 @@ h1 {
   height: 300px;
 }
 .intro-text {
+  font-family: Cabin;
   position: relative;
   font-size: 1.2rem;
   padding: 0rem 2rem;
 }
 h2 {
   border-bottom: 1px solid black;
+  font-family: Cabin;
+}
+@media screen and (max-width: 768px) {
+  .home-wrapper {
+    flex-wrap: wrap;
+    flex-flow: column;
+  }
+  h1 {
+    font-size: 2rem;
+    padding-left: .5rem;
+  }
 }
 
 /*
@@ -197,6 +219,11 @@ FOOTER
   justify-content: space-around;
   width: 100vw;
 }
+@media screen and (max-width: 768px) {
+  .footer-wrapper {
+    display: none;
+  }
+}
 
 /*
 FORUM
@@ -231,6 +258,17 @@ FORUM
 .forum-post {
   list-style: none;
   padding-left: 2rem;
+}
+@media screen and (max-width: 768px) {
+  .forum-wrapper {
+    padding: 1rem;
+  }
+  .rules {
+    padding-left: 1.5rem;
+  }
+  .rules-list {
+    padding-left: 3rem;
+  }
 }
 
 /*
@@ -279,42 +317,74 @@ RESOURCES
 */
 
 .resource-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.resources {
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-}
-.links {
-  color: forestgreen;
-  font-family: Cabin;
-  font-weight: bold;
-  font-size: 2.2rem;
-}
-.list {
-  justify-content: start;
-  align-items: center;
-  padding-top: 1.2rem;
-}
-.item {
-  font-size: 1.5rem;
-}
-.item:hover {
-  color: #37221D;
-}
-.trail-sign {
-  padding-right: 2.5rem;
-}
-.map {
-  width: 550px;
-  height: 300px;
-  padding-right: 3.5rem;
-}
-.trail-map {
-  height: 95%;
-  width: 95%;
-  padding: 2.5%
-}
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+  }
+  .resources {
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.2rem;
+  }
+  .links {
+    color: forestgreen;
+    font-family: Cabin;
+    font-weight: bold;
+    font-size: 2.2rem;
+  }
+  .list {
+    justify-content: start;
+    align-items: center;
+    padding-top: 1.2rem;
+  }
+  .item {
+    font-size: 1.5rem;
+  }
+  .item:hover {
+    color: #37221D;
+  }
+  .map {
+    width: 700px;
+    height: 500px;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .map-info {
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    margin: 0;
+  }
+  .frame {
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+  }
+  .trail-map {
+    padding-left: 3rem;
+    height: 80%;
+    width: 85%;
+  }
+  @media screen and (max-width: 768px) {
+    .resource-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: auto;
+    }
+    .map {
+      width: auto;
+      height: auto;
+    }
+    .trail-map {
+      padding-left: inherit;
+      height: 70vw;
+      width: 90vw;
+    }
+  }

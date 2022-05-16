@@ -41,6 +41,7 @@ const Navbar = () => {
                 variant='primary'
                 className='login-button' 
                 onClick={() => {dispatch( Login )}}
+                size='sm'
                 >Login</Button></Link>        
             </div>
           )
@@ -52,6 +53,7 @@ const Navbar = () => {
                 variant='primary'
                 className="signup-button" 
                 onClick={() => {dispatch( Register )}}
+                size='sm'
                 >Sign-up</Button></Link>
             </div>
           )
@@ -66,6 +68,7 @@ const Navbar = () => {
                   AuthService.logout()
                   window.location.reload()
                 }}
+                size='sm'
                 >Logout
               </Button>
             </div>

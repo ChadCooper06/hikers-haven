@@ -16,7 +16,10 @@ const Resources = () => {
       <div className="map">
         {/* iframe is running off of Google's servers, not mine. Size is small to control load times. 
           This can be used to load Youtube videos, etc. as well. TRUSTED SOURCES ONLY */}
+        <div className="frame">
         <iframe className="trail-map" title="Trail map" src="https://www.google.com/maps/d/embed?mid=1iHamrX3QVHxZwGyjGZzQ-rL1GKw"></iframe>
+        <p className="map-info">Feel free to use this map to find trail systems around the US, or even the world.</p>
+        </div>
       </div>
     </div>
   );
