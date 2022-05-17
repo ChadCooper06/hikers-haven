@@ -103,7 +103,7 @@ function Register() {
             user.lastName &&
             user.email
           ) ? false : true}
-          onClick={<Login />}
+          onClick={(e) => <Login />}
         >Sign Up</Button>
       </form>
     </div>
